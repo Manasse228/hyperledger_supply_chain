@@ -1,0 +1,34 @@
+
+namespace org.rolex.transaction
+
+import org.rolex.asset.PackWatch
+import org.rolex.asset.Material
+import org.rolex.asset.Watch
+import org.rolex.participant.Producter
+import org.rolex.participant.Retailer
+import org.rolex.participant.Customer
+import org.rolex.participant.MaterialSupplier
+
+transaction PurchaseMaterialTransaction {
+  --> MaterialSupplier seller
+  --> Producter buyer
+  --> Material[] materials
+}
+
+transaction PurchasePackWatchTransaction {
+  --> Retailer buyer
+  --> PackWatch packWatchs
+}
+
+transaction PurchaseWatchTransaction {
+  --> Customer buyer
+  --> Watch[] watchs
+}
+
+transaction TradeWatchTransaction {
+  --> Customer newOwner
+  --> Watch[] watchs
+}
+
+
+
